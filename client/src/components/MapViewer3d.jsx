@@ -808,7 +808,7 @@ const MapViewer3D = () => {
 
       <div className="absolute left-1/2 -translate-x-1/2 bg-green-400 text-white px-6 py-3 rounded-full shadow-2xl text-sm font-bold uppercase tracking-wider"
             style={{ bottom: '120px' }}>
-        Walk into a food to learn more
+        Walk into a location to learn more about available food
       </div>
       
       {selectedFood && (
@@ -876,10 +876,6 @@ const MapViewer3D = () => {
           </div>
         </div>
       )}
-      
-      <div className="h-20 bg-gray-800 border-t border-gray-700 flex items-center justify-center">
-        <p className="text-gray-400 text-sm">Bottom Navigation Bar (80px height)</p>
-      </div>
     </div>
   );
 };
