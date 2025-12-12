@@ -34,7 +34,7 @@ const MapViewer3D = () => {
       quantity: '5 kg',
       location: 'Marina Bay, Singapore',
       position: { x: 5, z: 8 },
-      expiryDate: '2024-12-20',
+      expiryDate: '2025-12-20',
       imageUrl: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=400'
     },
     {
@@ -44,7 +44,7 @@ const MapViewer3D = () => {
       quantity: '10 servings',
       location: 'Orchard Road, Singapore',
       position: { x: -8, z: -5 },
-      expiryDate: '2024-12-14',
+      expiryDate: '2025-12-14',
       imageUrl: 'https://images.unsplash.com/photo-1516684732162-798a0062be99?w=400'
     },
     {
@@ -54,7 +54,7 @@ const MapViewer3D = () => {
       quantity: '3 loaves',
       location: 'Chinatown, Singapore',
       position: { x: -3, z: 10 },
-      expiryDate: '2024-12-15',
+      expiryDate: '2025-12-15',
       imageUrl: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400'
     },
     {
@@ -64,7 +64,7 @@ const MapViewer3D = () => {
       quantity: '2 kg',
       location: 'Sentosa, Singapore',
       position: { x: 12, z: -8 },
-      expiryDate: '2024-12-18',
+      expiryDate: '2025-12-18',
       imageUrl: 'https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=400'
     }
   ]);
