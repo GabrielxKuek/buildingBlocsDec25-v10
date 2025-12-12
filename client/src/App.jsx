@@ -1,14 +1,35 @@
-import TestPage from './pages/TestPage'
-import ErrorPage from './pages/ErrorPage'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import React from 'react';
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import TestPage from './pages/TestPage';
+import ErrorPage from './pages/ErrorPage';
+import Dashboard from './pages/Dashboard';
+import Statspage from './pages/userstats';
+import MapViewerPage from './pages/MapViewerPage';
+import Map from "./pages/Map";
+import Events from "./pages/Events";
+import Navbar from './components/Navbar';
+import "./App.css";
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/test" element={<TestPage />} />
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
+      <div className="min-h-screen bg-gray-50 pb-16">
+        
+        {/* Main Routes */}
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/map" element={<Map />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/stats" element={<Statspage />} />
+          <Route path="/map-viewer" element={<MapViewerPage />} />
+          <Route path="/test" element={<TestPage />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+
+        {/* Bottom Navigation Bar */}
+        <Navbar />
+      </div>
     </BrowserRouter>
   );
 }
