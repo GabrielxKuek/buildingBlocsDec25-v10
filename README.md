@@ -1,5 +1,13 @@
 group writeup here
 
+Project Features and Functionalities
+
+1) Dashboard - To display leftover food
+2) Interactive Community Fridge Map - To discover nearest community fridges
+3) Events - To display and add events that are giving away leftover food
+4) Map Viewer on Explore Page - To discover nearby food donations through an interactive 3D map
+5) Stats Page and Leaderboard - To encourage users to save food and track their progress.
+
 SETUP INSTRUCTIONS
 
 ```bash
