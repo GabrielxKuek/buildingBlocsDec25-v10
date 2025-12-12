@@ -15,9 +15,13 @@ export default function Statspage() {
       <header className="bg-white border-b border-gray-200 sticky top-0 z-40">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-3xl font-bold text-green-600">FoodShare</h1>
-              <p className="text-gray-600 text-sm">Reducing waste, sharing care</p>
+            <div className="flex items-center gap-3">
+              <img src="./logo.png" className="h-12" alt="FoodShare Logo" />
+              {/* <img src="./appName.png" className="h-12" alt="FoodShare" /> */}
+              <div>
+                <h1 className="text-3xl font-bold text-green-600">FoodShare</h1>
+                <p className="text-gray-600 text-sm">Reducing waste, sharing care</p>
+              </div>
             </div>
           </div>
         </div>
