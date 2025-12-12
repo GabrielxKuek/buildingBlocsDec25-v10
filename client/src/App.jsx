@@ -11,6 +11,21 @@ import Events from "./pages/Events";
 import Navbar from './components/Navbar';
 import "./App.css";
 
+// function App() {
+//   return (
+//     <BrowserRouter>
+//       <Routes>
+//         <Route path="/test" element={<TestPage />} />
+//         <Route path="*" element={<ErrorPage />} />
+//       </Routes>
+//     </BrowserRouter>
+//   );
+// }
+
+// export default App;
+import "./App.css";
+import { Container, AppBar, Toolbar, Typography } from "@mui/material";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 function App() {
   return (
     <BrowserRouter>
@@ -33,5 +48,4 @@ function App() {
     </BrowserRouter>
   );
 }
-
 export default App;

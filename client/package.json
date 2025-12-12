@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/material": "^5.18.0",
     "@tailwindcss/vite": "^4.0.9",
     "@vis.gl/react-google-maps": "^1.7.1",
     "animejs": "^4.2.2",
