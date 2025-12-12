@@ -189,28 +189,28 @@ function Map() {
   }
 
   return (
-    <Box>
-      {!apiKey && (
-        <div style={{ padding: 16, background: '#fff3cd', color: '#664d03', borderRadius: 6, margin: '1rem 0' }}>
-          <strong>Google Maps API key not found.</strong> Set <code>VITE_GOOGLE_MAPS_API_KEY</code> in <em>client/.env</em> and restart the dev server.
-        </div>
-      )}
-      <h1 style={{ marginTop: '2rem', marginBottom: '1rem' }}>Interactive Community Fridge Map</h1>
+    // <Box>
+    //   {!apiKey && (
+    //     <div style={{ padding: 16, background: '#fff3cd', color: '#664d03', borderRadius: 6, margin: '1rem 0' }}>
+    //       <strong>Google Maps API key not found.</strong> Set <code>VITE_GOOGLE_MAPS_API_KEY</code> in <em>client/.env</em> and restart the dev server.
+    //     </div>
+    //   )}
+    //   <h1 style={{ marginTop: '2rem', marginBottom: '1rem' }}>Interactive Community Fridge Map</h1>
 
-      <APIProvider apiKey={apiKey} onLoad={() => console.log('Maps API has loaded.') }>
-        <GoogleMap
-          defaultZoom={13}
-          defaultCenter={initialCenter || { lat: 1.3696187128049564, lng: 103.7999958732937 }}
-          onCameraChanged={(ev) =>
-            console.log('camera changed:', ev.detail.center, 'zoom:', ev.detail.zoom)
-          }
-          mapId={mapId}
-          style={{ height: '60vh', width: '100%' }}
-        >
-          <PoiMarkers pois={locations} initialCenter={initialCenter} initialName={initialName} />
-        </GoogleMap>
-      </APIProvider>
-    </Box>
+    //   <APIProvider apiKey={apiKey} onLoad={() => console.log('Maps API has loaded.') }>
+    //     <GoogleMap
+    //       defaultZoom={13}
+    //       defaultCenter={initialCenter || { lat: 1.3696187128049564, lng: 103.7999958732937 }}
+    //       onCameraChanged={(ev) =>
+    //         console.log('camera changed:', ev.detail.center, 'zoom:', ev.detail.zoom)
+    //       }
+    //       mapId={mapId}
+    //       style={{ height: '60vh', width: '100%' }}
+    //     >
+    //       <PoiMarkers pois={locations} initialCenter={initialCenter} initialName={initialName} />
+    //     </GoogleMap>
+    //   </APIProvider>
+    // </Box>
 
     <div className="relative w-full h-screen bg-gradient-to-br from-green-50 via-white to-blue-50">
       {/* Header Section */}
