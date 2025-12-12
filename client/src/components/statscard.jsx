@@ -6,9 +6,9 @@ function StatsCard({ indvfoodSaved, indvfoodDonated }) {
 
   // Achievements for each user 
   let achievement;
-  if (indvtotal >= 10) achievement = "Bronze";
-  else if (indvtotal >= 30 ) achievement = "Silver";
-  else achievement = "Gold";
+  if (indvtotal >= 30) achievement = "Gold";
+  else if (indvtotal >= 10) achievement = "Silver";
+  else achievement = "Bronze";
 
   // sample Tips of the Day for each user
   const tips = [
@@ -16,37 +16,48 @@ function StatsCard({ indvfoodSaved, indvfoodDonated }) {
     "Buy only what you need — plan meals ahead.",
     "When storing new groceries, move older items to the front of the fridge or pantry so they are used first.",
     "Items like potatoes, onions, garlic, and whole pumpkins prefer cool, dark, and dry places like a pantry or cupboard, not the fridge.",
- ];
+  ];
 
   // Pick a random tip from the tips list
   const randomIndex = Math.floor(Math.random() * tips.length);
   const tipOfTheDay = tips[randomIndex];
 
-   return (
-    <div className="bg-yellow-50 shadow-md p-4 rounded-xl w-full max-w-md mx-auto mt-6">
-      <h2 className="text-xl font-bold mb-3">Summary</h2>
+  return (
+    <div className="h-full">
+      <h2 className="text-xl font-semibold text-gray-800 mb-4">Summary</h2>
 
-      <div className="bg-purple-100 flex justify-between">
-        <div>Your Food Saved:</div>
-        <div>{indvfoodSaved} kg</div>
-      </div>
+      <div className="space-y-3">
+        {/* Stats rows */}
+        <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+          <span className="text-gray-700 font-medium">Food Saved</span>
+          <span className="text-green-600 font-bold">{indvfoodSaved} kg</span>
+        </div>
 
-      <div className="bg-purple-100 flex justify-between">
-        <div>Your Food Donated:</div>
-        <div>{indvfoodDonated} kg</div>
-      </div>
+        <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+          <span className="text-gray-700 font-medium">Food Donated</span>
+          <span className="text-green-600 font-bold">{indvfoodDonated} kg</span>
+        </div>
 
-      <div className="bg-purple-100 flex justify-between">
-        <div>Meals Equivalent:</div>
-        <div>{meals} meals</div>
-      </div>
+        <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+          <span className="text-gray-700 font-medium">Meals Equivalent</span>
+          <span className="text-green-600 font-bold">{meals} meals</span>
+        </div>
 
-      <div className="bg-blue-100 p-2 rounded-md mt-3">
-        Achievement: {achievement}
-      </div>
+        {/* Achievement badge */}
+        <div className="p-4 bg-gradient-to-r from-yellow-50 to-yellow-100 rounded-lg border border-yellow-200 mt-4">
+          <div className="flex items-center justify-between">
+            <span className="text-gray-700 font-medium">Achievement</span>
+            <span className="px-3 py-1 bg-yellow-400 text-yellow-900 rounded-full text-sm font-bold">
+              {achievement}
+            </span>
+          </div>
+        </div>
 
-      <div className="bg-green-100 p-2 rounded-md mt-3">
-         Tip of the day: {tipOfTheDay}
+        {/* Tip of the day */}
+        <div className="p-4 bg-green-50 rounded-lg border border-green-200 mt-4">
+          <h3 className="text-sm font-semibold text-green-800 mb-2">💡 Tip of the Day</h3>
+          <p className="text-sm text-gray-700 leading-relaxed">{tipOfTheDay}</p>
+        </div>
       </div>
     </div>
   );
