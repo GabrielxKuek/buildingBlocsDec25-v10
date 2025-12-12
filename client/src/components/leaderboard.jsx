@@ -10,7 +10,7 @@ function Leaderboard(){
     const SortedData = [...dummyData].sort((a,b) => b.amount-a.amount);
 
     return (
-        <div className="p-4 w-full max-w-md mx-auto">
+        <div className="p-4 w-full max-w-4xl mx-auto">
             <h2 className="text-2xl font semibold mb-4">Top Food Savers</h2>
 
             <ul className="space-y-2">

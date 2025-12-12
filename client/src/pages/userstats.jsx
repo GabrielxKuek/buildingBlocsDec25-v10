@@ -24,7 +24,7 @@ export default function Statspage() {
         </div>
 
         {/* Top section: Pokemon + Summary */}
-<div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full items-start max-w-full">
+<div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full items-start max-w-6xl mx-auto">
 
   {/* Left: Pokemon + progress */}
   <div className="flex flex-col">
