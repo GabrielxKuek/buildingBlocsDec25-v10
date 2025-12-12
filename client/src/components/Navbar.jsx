@@ -1,6 +1,5 @@
-import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Map, Calendar, TrendingUp } from 'lucide-react';
+import { Home, Map, Calendar, TrendingUp, Compass } from 'lucide-react';
 
 export default function Navbar() {
   const location = useLocation();
@@ -12,6 +11,7 @@ export default function Navbar() {
   const navLinks = [
     { path: '/', label: 'Home', icon: Home },
     { path: '/map', label: 'Map', icon: Map },
+    { path: '/map-viewer', label: 'Explore', icon: Compass },
     { path: '/events', label: 'Events', icon: Calendar },
     { path: '/stats', label: 'Stats', icon: TrendingUp },
   ];
