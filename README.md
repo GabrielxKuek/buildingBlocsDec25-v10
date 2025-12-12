@@ -18,6 +18,8 @@ npm install
 npm run dev
 ```
 
+Note - view webbsite in incognito mode to see the website in a fresh state
+
 Google Map API
 
 Refer to this link to set up Google Maps API
