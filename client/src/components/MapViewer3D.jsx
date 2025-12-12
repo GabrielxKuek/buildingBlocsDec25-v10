@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
-import { Package, Calendar, MapPin, X } from 'lucide-react';
+import { Package, Calendar, MapPin, X, CheckCircle } from 'lucide-react';
 
 const MapViewer3D = () => {
   const containerRef = useRef(null);
@@ -25,6 +25,7 @@ const MapViewer3D = () => {
   const [joystickActive, setJoystickActive] = useState(false);
   const [selectedFood, setSelectedFood] = useState(null);
   const [showNotification, setShowNotification] = useState(true);
+  const [showSuccessNotification, setShowSuccessNotification] = useState(false);
   const [foodItems, setFoodItems] = useState([
     {
       id: 1,
@@ -72,6 +73,21 @@ const MapViewer3D = () => {
   const worldOffsetRef = useRef({ x: 0, z: 0 });
   const joystickPositionRef = useRef({ x: 0, y: 0 });
   const collisionCooldownRef = useRef(0);
+
+  const handleRequestPickup = (food) => {
+    setFoodItems(prev =>
+      prev.map(f => 
+        f.id === food.id ? { ...f, claimed: true } : f
+      )
+    );
+
+    // Close popup
+    setSelectedFood(null);
+
+    // Show success toast
+    setShowSuccessNotification(true);
+    setTimeout(() => setShowSuccessNotification(false), 3000);
+  };
 
   const createFallbackCharacter = (scene) => {
     const characterGroup = new THREE.Group();
@@ -815,7 +831,15 @@ const MapViewer3D = () => {
           </div>
         </div>
       )}
+
       
+      {showSuccessNotification && (
+        <div className="fixed top-6 left-1/2 -translate-x-1/2 bg-green-500 text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3 z-50 animate-slideDown">
+          <CheckCircle className="w-6 h-6" />
+          <span className="font-medium">Seller notified! They&apos;ll contact you soon.</span>
+        </div>
+      )}
+  
       <div 
         ref={joystickRef}
         className="absolute left-1/2 -translate-x-1/2 bg-white/30 backdrop-blur-sm rounded-full shadow-2xl cursor-pointer touch-none"
@@ -895,10 +919,8 @@ const MapViewer3D = () => {
               
               <button 
                 className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2.5 rounded-xl font-medium transition-colors text-sm"
-                onClick={() => {
-                  setSelectedFood(null);
-                  alert('Seller notified!');
-                }}>
+                onClick={() => handleRequestPickup(selectedFood)}
+              >
                 Request Pickup
               </button>
             </div>

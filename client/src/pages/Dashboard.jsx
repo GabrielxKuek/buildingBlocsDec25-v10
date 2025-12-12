@@ -13,6 +13,9 @@ export default function Dashboard() {
   const [searchQuery, setSearchQuery] = useState('')
   const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false)
   const [loading, setLoading] = useState(true)
+  const [claimPopupOpen, setClaimPopupOpen] = useState(false)
+  const [claimedPost, setClaimedPost] = useState(null)
+
 
   // ---------------------------
   // Load Data (LocalStorage → API → Mock)
@@ -127,7 +130,9 @@ export default function Dashboard() {
   }
 
   const handleClaimPost = (postId) => {
-    alert(`Seller notified that you are on the way!`)
+    const post = posts.find(p => p.id === postId)
+    setClaimedPost(post)
+    setClaimPopupOpen(true)
   }
 
   return (
@@ -209,6 +214,30 @@ export default function Dashboard() {
             onSubmit={handleCreatePost}
             onCancel={() => setIsCreateDialogOpen(false)}
           />
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={claimPopupOpen} onOpenChange={setClaimPopupOpen}>
+        <DialogContent className="animate-in fade-in-50 zoom-in-95">
+          <DialogHeader>
+            <DialogTitle className="text-green-600">Claim Successful!</DialogTitle>
+            <DialogDescription>
+              {claimedPost && (
+                <span>
+                  The owner of <strong>{claimedPost.title}</strong> has been notified.
+                </span>
+              )}
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="pt-4">
+            <Button
+              onClick={() => setClaimPopupOpen(false)}
+              className="w-full"
+            >
+              OK
+            </Button>
+          </div>
         </DialogContent>
       </Dialog>
 
