@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { Box } from '@mui/material';
 import { useLocation } from 'react-router-dom';
+import { MapPin, Navigation } from 'lucide-react';
 
 import {
   APIProvider,
@@ -210,7 +211,66 @@ function Map() {
         </GoogleMap>
       </APIProvider>
     </Box>
+
+    <div className="relative w-full h-screen bg-gradient-to-br from-green-50 via-white to-blue-50">
+      {/* Header Section */}
+      <div className="absolute top-0 left-0 right-0 z-10 bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center gap-3">
+            <div className="bg-gradient-to-br from-green-500 to-green-600 p-2.5 rounded-xl shadow-md">
+              <MapPin className="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <h1 className="text-2xl font-bold text-gray-800 leading-tight">
+                Interactive Community Fridge Map
+              </h1>
+              <p className="text-sm text-gray-600 flex items-center gap-1.5 mt-0.5">
+                <Navigation className="w-3.5 h-3.5" />
+                Discover local community fridges near you
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Map Section */}
+      <div className="absolute top-[88px] left-0 right-0 bottom-0">
+        <div className="h-full w-full p-4">
+          <div className="h-full w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+            <APIProvider 
+              apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY} 
+              onLoad={() => console.log('Maps API has loaded.')}
+            >
+              <GoogleMap
+                defaultZoom={13}
+                defaultCenter={initialCenter || { lat: 1.3696187128049564, lng: 103.7999958732937 }}
+                onCameraChanged={(ev) =>
+                  console.log('camera changed:', ev.detail.center, 'zoom:', ev.detail.zoom)
+                }
+                mapId='f4e052ff9c5fc70ae47e3a36'
+                style={{ height: '100%', width: '100%' }}
+              >
+                <PoiMarkers pois={locations} initialCenter={initialCenter} initialName={initialName} />
+              </GoogleMap>
+            </APIProvider>
+          </div>
+        </div>
+      </div>
+
+      {/* Stats Badge */}
+      <div className="absolute bottom-20 left-4 z-10 bg-white/95 backdrop-blur-md rounded-xl shadow-lg p-3 border border-gray-200">
+        <div className="flex items-center gap-2">
+          <div className="bg-green-100 p-2 rounded-lg">
+            <MapPin className="w-4 h-4 text-green-600" />
+          </div>
+          <div>
+            <div className="text-xs text-gray-600">Total Locations</div>
+            <div className="text-lg font-bold text-gray-800">{locations.length}</div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
-export default Map
+export default Map;
